@@ -1,15 +1,29 @@
 namespace ClassyElectronics
 {
-    public class Speakinator3001 : TurnTable
+    public class Speakinator3001 : ITurnTable, ISpeaker
     {
+        public double CurrentSpeed { get; set; }
+        public bool IsPlaying { get; set; }
         public int Volume { get; set; }
-        public void VolumeUp()
+
+        public void Play()
         {
-            Volume++;
+            IsPlaying = true;
         }
+
+        public void Stop()
+        {
+            IsPlaying = false;
+        }
+
         public void VolumeDown()
         {
             Volume--;
+        }
+
+        public void VolumeUp()
+        {
+            Volume++;
         }
     }
 }
